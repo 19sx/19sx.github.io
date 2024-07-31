@@ -1,47 +1,117 @@
-/*header style*/
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0;
+    background-image: url('background.jpg');
+    background-size: 300%;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
 header {
-   text-align: center; 
-   padding: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
 }
 
-/*navigation bar style*/
-nav {
-   text-align: center;
-   word-spacing: 30px;
-   padding: 10px;
-   background-color: #f5f5dc
-   font-family: Helvetica;
-   
-}
-/*navigation bar button style*/
-nav a {
-   color: #000000;
-   text-decoration: none;
-   font-size: larger;
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    color: #ffffff;
 }
 
-*{
-   box-sizing: border-box;
+.about-me {
+    text-align: center;
+    padding: 20px 0;
 }
-.row {
-   display: flex;
-   flex-wrap: wrap;
+
+.about-me a {
+    color: #b82323;
 }
-.post-text-box {
-   flex: 70%;
-   padding: 20px;
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid #da1717;
 }
-.profile {
-   flex: 70%;
-   padding: 20px;
+
+.about-me h2 {
+    margin-top: 10px;
+    font-size: 2em;
+    color: #f9fdfd;
 }
-/*profile image and heading style*/
-.profile img {
-   width: 120px;
-   display: block;
-   margin-left: 0;
-   margin-right: 0;
+
+.about-me p {
+    line-height: 1.6;
+    color: #e0e0e0;
 }
-.profile h1 {
-   text-align: center;
+
+section {
+    margin: 20px 0;
+}
+
+section h2 {
+    margin-bottom: 10px;
+    font-size: 1.8em;
+    color: #da0303;
+    border-bottom: 2px solid #333;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    background-color: #1f1f1f;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: #e0e0e0;
+}
+
+.social-media ul li {
+    transition: transform 0.2s;
+}
+
+.social-media ul li:hover {
+    transform: scale(1.05);
+}
+
+.social-media ul li a {
+    color: #b82323;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.social-media ul li a:hover {
+    cursor: pointer;
+}
+
+.contact-info a {
+    color: #fcfcfc;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.credits a {
+    color: #6d0303;
+    text-decoration: none;
 }

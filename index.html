@@ -1,68 +1,162 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A L E X</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>About Me - Alex</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin: 0;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .socials {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .socials a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            border: 2px solid #fff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .socials a:hover {
+            background-color: #fff;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .socials a {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
+        }
+
+        /* Particle background */
+        #particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Meet the Alex's</h1>
-        </header>
-        <section class="about-me">
-         <!-- Wenn Bild dann diese Zeile nutzen    <img src="dein-bild.jpg" alt="Mein Bild" class="profile-pic"> -->
-            <h2>Alexi Bexi</h2>
-            <p>Itler des Vertrauens</p>
+    <div id="particles"></div>
+    <h1>Alex</h1>
 
-            <p>Diese Seite ist <a href="https://www.investopedia.com/terms/w/workinprogress.asp" target="_blank" >WIP</a> und ist noch kein Endprodukt und sollte auch nicht als eins betrachtet werden.</p>
-        </section>
-        <section class="social-media">
-            <h2>Soziale Medien</h2>
-            <ul>
-                <li> <strong></strong> <a href="mailto:alexanderherman270@gmail.com">Email</a> </li>
-                <li><a href="https://www.linkedin.com/in/alexander-herman-48b889317/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/19sx" target="_blank">GitHub</a></li>
-                <li><a href="https://sxplex.com/personalwv1/" target="_blank">Personal Website v1 (Abgebrochen)</a></li>
-            </ul>
-        </section>
-        <section class="education">
-            <h2>Schulischer Werdegang</h2>
-            <ul>
-                <li>-> Mittlere Reife , 2025</li>
-                <li>Realschule Schwabmünchen, 2022-2025</li>
-                <li>Gymnasium Schwabmünchen, 2018 - 2022</li>
-            </ul>
-        </section>
-        <section class="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Projektmanagment</li>
-                <li>Zuverlässigkeit</li>
-                <li>Führungskompetenz</li>
-                <li>Kommunikationsfähigkeit</li>
-                <li>Teamfähigkeit</li>
-            </ul>
-        </section>
-        <section class="it-skills">
-            <h2>IT Skills</h2>
-            <ul>
-                <li>HTML & CSS - Selbst Angelernt</li>
-                <li>C - CS50x (ongoing)</li>
-                <li>Python - Udemy</li>
-            </ul>
-        </section>
-        <section class="contact-info">
-            <h2>Kontaktinformationen</h2>
-            <p>Email: <a href="mailto:al7xdev@proton.me">Alex Protonmail</a></p>
-            <p>Telefon: 49 1624285713</p>
-        </section>
-
-        <section class="credits">
-            <p> <a href="https://www.freepik.com/free-vector/abstract-black-shapes-background-design_14649137.htm#fromView=search&page=1&position=27&uuid=2ef3a2bf-380e-4770-bdeb-02068f776672">Image by starline on Freepik</a></p>
-
-        </section>
+    <div class="socials">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://github.com" target="_blank">GitHub</a>
+        <a href="#contact">Contact</a>
     </div>
+
+    <script src="jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Particle background initialization
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const particles = [];
+
+            canvas.id = 'particles';
+            document.body.appendChild(canvas);
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+
+            function createParticles() {
+                particles.length = 0;
+                for (let i = 0; i < 100; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.5,
+                        vy: (Math.random() - 0.5) * 0.5,
+                        radius: Math.random() * 3 + 1
+                    });
+                }
+            }
+
+            function drawParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#fff';
+                particles.forEach(p => {
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                });
+            }
+
+            function animate() {
+                drawParticles();
+                requestAnimationFrame(animate);
+            }
+
+            resizeCanvas();
+            createParticles();
+            animate();
+
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                createParticles();
+            });
+        });
+    </script>
 </body>
 </html>

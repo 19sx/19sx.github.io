@@ -33,9 +33,11 @@
         .socials {
             margin-top: 20px;
             display: flex;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
             justify-content: center;
             z-index: 2;
+            padding: 0 10px;
         }
 
         .socials a {
@@ -46,6 +48,9 @@
             border: 2px solid #fff;
             border-radius: 25px;
             transition: all 0.3s ease;
+            flex: 1 1 calc(50% - 20px);
+            max-width: 200px;
+            box-sizing: border-box;
         }
 
         .socials a:hover {
@@ -73,6 +78,19 @@
             .socials a {
                 font-size: 1rem;
                 padding: 8px 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .socials {
+                gap: 10px;
+            }
+
+            .socials a {
+                font-size: 0.9rem;
+                padding: 8px 10px;
+                flex: 1 1 100%;
+                max-width: 100%;
             }
         }
 

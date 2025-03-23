@@ -1,99 +1,73 @@
+body {
+    background: linear-gradient(132deg, #000000,#00ff00, #0000ff,#e60073,#ff0000,#ffffff);
+    background-size: 400% 400%;
+    animation: BackgroundGradient 15s ease infinite;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
-@keyframes blinkCursor {
-    50% {
-      border-right-color: transparent;
-    }
-  }
-  
-  @keyframes typeAndDelete {
-    0%,
-    10% {
-      width: 0;
-    }
-    45%,
-    55% {
-      width: 5em;
-    } /* adjust width based on content */
-    90%,
-    100% {
-      width: 0;
-    }
-  }
-  body{
+.main-link {
+    text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-top: 10cm;
-    background-color: rgb(153, 140, 119);
-  }
 
-  .terminal-loader {
-    border: 0.5em solid #333;
-    background-color: #1a1a1a;
-    color: #0f0;
-    font-family: "Courier New", Courier, monospace;
+}
+
+.alex {
+    font-family: Open Sans, sans-serif;
+    color: #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 2em;
+    padding: 5px;
+    margin: 0;
+}
+
+h1 {
+    font-family: Open Sans, sans-serif;
+    color: #fff;
+    font-weight: 400;
+    text-transform: lowercase;
+    text-align: center;
+    font-size: 2em;
+    padding: 3px;
+    margin: 0;
+}
+
+.link-container {
+    margin-top: 20px;
     font-size: 1em;
-    padding: 2em;
-    width: 15em;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    position: relative;
-    overflow: hidden;
-    box-sizing: border-box;
-  }
-  
-  .terminal-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1.5em;
-    background-color: #333;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    padding: 0 0.4em;
-    box-sizing: border-box;
-  }
-  
-  .terminal-controls {
-    float: right;
-  }
-  
-  .control {
-    display: inline-block;
-    width: 0.6em;
-    height: 0.6em;
-    margin-left: 0.4em;
-    border-radius: 50%;
-    background-color: #777;
-  }
-  
-  .control.close {
-    background-color: #e33;
-  }
-  
-  .control.minimize {
-    background-color: #ee0;
-  }
-  
-  .control.maximize {
-    background-color: #0b0;
-  }
-  
-  .terminal-title {
-    float: left;
-    line-height: 1.5em;
-    color: #eee;
-  }
-  
-  .text {
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 0.2em solid green; /* Cursor */
-    animation:
-      typeAndDelete 4s steps(7) infinite,
-      blinkCursor 0.5s step-end infinite alternate;
-    margin-top: 1.5em;
-  }
-  
+    color: white;
+    text-align: center;
+}
+
+.small-link {
+    font-family: Open Sans, sans-serif;
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.9em;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-weight: 350;
+
+}
+
+.small-link:hover {
+    background: linear-gradient(132deg, #ffffff, #ff0000, #e60073, #0000ff, #00ff00, #ffffff);
+    background-size: 400% 400%;
+    animation: BackgroundGradient 15s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(2);
+}
+
+@keyframes BackgroundGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}

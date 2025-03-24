@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(132deg, #000000,#00ff00, #0000ff,#e60073,#ff0000,#ffffff);
+    background: linear-gradient(132deg, #a50044, #a50044, #004d98,#004d98,#a50044, #a50044);
     background-size: 400% 400%;
     animation: BackgroundGradient 15s ease infinite;
     margin: 0;
@@ -21,7 +21,6 @@ body {
     font-family: Open Sans, sans-serif;
     color: #fff;
     font-weight: 400;
-    text-transform: uppercase;
     text-align: center;
     font-size: 2em;
     padding: 5px;
@@ -32,7 +31,6 @@ h1 {
     font-family: Open Sans, sans-serif;
     color: #fff;
     font-weight: 400;
-    text-transform: lowercase;
     text-align: center;
     font-size: 2em;
     padding: 3px;
@@ -58,13 +56,23 @@ h1 {
 }
 
 .small-link:hover {
-    background: linear-gradient(132deg, #ffffff, #ff0000, #e60073, #0000ff, #00ff00, #ffffff);
+    background: linear-gradient(132deg, #ffffff, #ffffff ,#edbb00 ,#edbb00 , #ffffff ,#ffffff );
     background-size: 400% 400%;
-    animation: BackgroundGradient 15s ease infinite;
+    animation: BackgroundGradient 8s ease infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transform: scale(2);
+    transform: scale(5);
 }
+
+h1:hover {
+    background: linear-gradient(132deg, #ffffff, #ffffff ,#edbb00 ,#edbb00 , #ffffff ,#ffffff );
+    background-size: 400% 400%;
+    animation: BackgroundGradient 8s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: scale(1.1);
+}
+
 
 @keyframes BackgroundGradient {
     0% {background-position: 0% 50%;}

@@ -1,81 +1,64 @@
 body {
-    background: linear-gradient(132deg, #a50044, #a50044, #004d98,#004d98,#a50044, #a50044);
-    background-size: 400% 400%;
-    animation: BackgroundGradient 15s ease infinite;
+    font-family: "SF Mono", "SF Mono-Regular", "Courier New", Courier, monospace;
+    background-color: #fff;
+    color: #000;
     margin: 0;
-    height: 100vh;
+    padding: 2rem;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="4" fill="black" /></svg>') 10 10, auto;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body:has(a:hover) {
+    background-color: #426ba1;
+    color: #d3db2b;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a:hover {
+    background-color: #d3db2b;
+    color: #6982a2;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.header {
+    margin-bottom: 2rem;
 }
 
 .main-link {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-
-}
-
-.alex {
-    font-family: Open Sans, sans-serif;
-    color: #fff;
-    font-weight: 400;
-    text-align: center;
-    font-size: 2em;
-    padding: 5px;
-    margin: 0;
-}
-
-h1 {
-    font-family: Open Sans, sans-serif;
-    color: #fff;
-    font-weight: 400;
-    text-align: center;
-    font-size: 2em;
-    padding: 3px;
-    margin: 0;
+    font-weight: bold;
+    border-bottom: none;
+    font-size: 1.5rem;
+    transition: color 0.5s ease;
 }
 
 .link-container {
-    margin-top: 20px;
-    font-size: 1em;
-    color: white;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
 }
 
 .small-link {
-    font-family: Open Sans, sans-serif;
-    color: white;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 0.9em;
-    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    font-weight: 350;
-
+    border-bottom: none;
+    transition: color 0.5s ease;
 }
 
-.small-link:hover {
-    background: linear-gradient(132deg, #ffffff, #ffffff ,#edbb00 ,#edbb00 , #ffffff ,#ffffff );
-    background-size: 400% 400%;
-    animation: BackgroundGradient 8s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: scale(5);
-}
-
-h1:hover {
-    background: linear-gradient(132deg, #ffffff, #ffffff ,#edbb00 ,#edbb00 , #ffffff ,#ffffff );
-    background-size: 400% 400%;
-    animation: BackgroundGradient 8s ease infinite;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform: scale(1.1);
-}
-
-
-@keyframes BackgroundGradient {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+p {
+    margin-top: 2rem;
+    transition: color 0.5s ease;
 }

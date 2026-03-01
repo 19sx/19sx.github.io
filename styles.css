@@ -3,8 +3,10 @@
 }
 
 body {
-    background-color: #000000;
-    color: #8c1a1a;
+    background-color: #050202;
+    /* Extremely subtle CRT scanline effect to give an authentic screen feel */
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(50, 10, 10, 0.02) 2px, rgba(50, 10, 10, 0.02) 4px);
+    color: #a34841;
     font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 40px 20px;
@@ -12,26 +14,43 @@ body {
     justify-content: center;
 }
 
+/* Slower, subtler pulse for the borders instead of complex gradient sliding */
+@keyframes slowBorderPulse {
+    0% {
+        border-color: #1c0a0a;
+    }
+
+    50% {
+        border-color: #4a1917;
+    }
+
+    100% {
+        border-color: #1c0a0a;
+    }
+}
+
 .terminal {
     width: 100%;
     max-width: 650px;
-    border: 1px solid #2a0505;
-    background-color: #030000;
     padding: 40px;
+    background-color: #000000;
+    /* Sharp edges instead of border-radius for an older aesthetic */
+    border: 1px solid #1c0a0a;
+    animation: slowBorderPulse 15s ease-in-out infinite;
 }
 
 .profile-pic {
     width: 120px;
     height: 120px;
-    border: 1px solid #4a0b0b;
-    padding: 5px;
+    padding: 4px;
     margin-bottom: 30px;
-    opacity: 0.7;
-    filter: grayscale(100%) sepia(100%) hue-rotate(315deg) saturate(300%) brightness(0.6);
+    border: 1px solid #3d1616;
+    /* Pure CSS filters for color matching, no background tricks */
+    filter: grayscale(100%) sepia(100%) hue-rotate(345deg) saturate(150%) brightness(0.6);
 }
 
 h1 {
-    color: #a62424;
+    color: #c44133;
     font-size: 22px;
     text-transform: uppercase;
     margin: 0 0 10px 0;
@@ -39,8 +58,28 @@ h1 {
     font-weight: normal;
 }
 
+/* Classic blinking cursor as an authentic passive animation */
+h1::after {
+    content: "█";
+    opacity: 0.6;
+    margin-left: 8px;
+    animation: cursorBlink 2s steps(2, start) infinite;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        visibility: visible;
+    }
+
+    50% {
+        visibility: hidden;
+    }
+}
+
 h2 {
-    color: #5c1111;
+    color: #8c2a21;
     font-size: 14px;
     text-transform: uppercase;
     margin: 0 0 25px 0;
@@ -49,19 +88,19 @@ h2 {
 }
 
 .desc {
-    color: #731515;
+    color: #a3615a;
     font-size: 14px;
     line-height: 1.6;
 }
 
 hr {
     border: none;
-    border-top: 1px dashed #2a0505;
+    border-top: 1px dashed #3d1616;
     margin: 35px 0;
 }
 
 .section h3 {
-    color: #8c1a1a;
+    color: #a83f34;
     font-size: 14px;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -75,28 +114,27 @@ ul {
 }
 
 li {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
 }
 
 a {
-    color: #731515;
+    color: #c45d52;
     text-decoration: none;
     font-size: 14px;
     display: inline-block;
-    padding: 4px 8px;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-    word-break: break-word; 
+    padding: 2px 6px;
+    transition: background-color 0.15s, color 0.15s;
+    word-break: break-word;
 }
 
+/* Raw hover effect: solid block color flip */
 a:hover {
-    color: #a62424;
-    background-color: #0a0000;
-    border: 1px solid #4a0b0b;
+    color: #000000;
+    background-color: #a83f34;
 }
 
 .coming-soon {
-    color: #3b0808;
+    color: #632620;
     font-size: 13px;
     margin-top: 20px;
 }
@@ -107,14 +145,21 @@ a:hover {
     gap: 15px;
 }
 
+/* Specific styling for the boxes in the bottom links section */
 .links a {
-    border: 1px solid #1a0303;
+    padding: 8px 12px;
+    border: 1px solid #1c0a0a;
+    background-color: transparent;
+    animation: slowBorderPulse 10s ease-in-out infinite;
+    /* Staggering the animation slightly backwards */
+    animation-delay: -3s;
 }
 
 .links a:hover {
-    border: 1px solid #5c1111;
+    color: #000000;
+    background-color: #8c2a21;
+    border-color: #8c2a21;
 }
-
 
 @media (max-width: 600px) {
     body {
@@ -123,7 +168,6 @@ a:hover {
 
     .terminal {
         padding: 25px 15px;
-        border-color: #1a0303; 
     }
 
     h1 {
@@ -131,7 +175,10 @@ a:hover {
         letter-spacing: 1px;
     }
 
-    h2, .desc, .section h3, a {
+    h2,
+    .desc,
+    .section h3,
+    a {
         font-size: 13px;
     }
 
@@ -146,14 +193,13 @@ a:hover {
     }
 
     .links {
-        flex-direction: column; 
+        flex-direction: column;
         gap: 10px;
     }
 
     .links a {
         text-align: left;
-        padding: 12px 10px; 
-        border: 1px dashed #1a0303; 
+        padding: 12px 10px;
         display: block;
     }
 }

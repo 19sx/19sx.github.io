@@ -3,60 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>// Alexander Herman </title>
+    <title>Herman</title>
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Animations Script -->
+    <script src="animations.js" defer></script>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
 
-    <div class="terminal">
-        <img src="A.png" alt="ID" class="profile-pic">
-        
-        <h1>Herman Alexander</h1>
-        <h2>Junior Dev & GFX and SMM</h2>
-        <p class="desc">> Content creation, innovation, and continuous improvement drive optimal results.</p>
-        
-        <hr>
-
-        <div class="section">
-            <h3>>> Projekte</h3>
-            <ul>
-                <li>
-                    <a href="#"><i class="fa-solid fa-globe"></i> 19sx my personal site</a>
-                </li>
-                <li>
-                    <a href="https://github.com/19sx/locktf" target="_blank"><i class="fa-solid fa-code"></i> locktf - my cs50 final project</a>
-                </li>
-            </ul>
+    <!-- 1. Sticky Nav -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="#hero" class="site-name">Alexander Herman</a>
+            <div class="nav-links">
+                <a href="#about" data-en="About" data-de="Über">About</a>
+                <a href="#projects" data-en="Projects" data-de="Projekte">Projekte</a>
+                <a href="#achievements" data-en="Achievements" data-de="Erfolge">Erfolge</a>
+                <a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+            </div>
+            <button class="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-toggles">
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀</button>
+            </div>
+            <div class="nav-status">
+                <span class="mono" style="font-size: 11px; margin-right: 15px;"><span class="status-dot"></span> <span data-en="available" data-de="aktiv">available</span></span>
+                <kbd>⌘K</kbd>
+            </div>
         </div>
+    </nav>
 
-        <hr>
-
-        <div class="section">
-            <h3>>> Erfolge</h3>
-            <ul>
-                <li>
-                    <a href="https://www.linkedin.com/posts/a7lexjs_whitehatsforfuture-ctf-cybersecurity-ugcPost-7427422672076136449-mmmK?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFBl12sB0bxVN2wnOlLbhlFypS6uI7Ss-WA" target="_blank">
-                        <i class="fa-solid fa-trophy"></i> Platz 5 Hacking Challenge THA
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/posts/a7lexjs_i-really-enjoyed-the-cs50-course-and-it-share-7370440397778477056-x-JD?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFBl12sB0bxVN2wnOlLbhlFypS6uI7Ss-WA" target="_blank">
-                        <i class="fa-solid fa-certificate"></i> Completion CS50x
-                    </a>
-                </li>
-            </ul>
-            <p class="coming-soon">... and more to come.</p>
+    <!-- 2. Hero Section -->
+    <header id="hero" class="section hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title" data-animate="word-split">
+                <span class="word">Alexander</span> <span class="word">Herman</span>
+            </h1>
+            <p class="hero-subtitle typewriter mono" data-text="> initializing portfolio.exe..."></p>
         </div>
+    </header>
 
-        <hr>
-
-        <div class="links">
-            <a href="https://github.com/19sx" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            <a href="https://linkedin.com/in/alexander-herman-48b889317" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-            <a href="mailto:al7xdev@proton.me"><i class="fas fa-envelope"></i> Email</a>
+    <!-- 3. About / Intro Strip -->
+    <section id="about" class="section about-section">
+        <div class="about-container">
+            <div class="about-sticky-content">
+                <h2 class="section-title" data-animate="word-split" data-en="Innovation starts here." data-de="Innovation beginnt mit uns.">
+                    <span class="word">Innovation</span> <span class="word">starts</span> <span class="word">here.</span>
+                </h2>
+            </div>
+            <div class="about-scroll-content">
+                <blockquote data-animate="fade-up" data-en="&quot;Content creation, innovation, and continuous improvement drive optimal results.&quot;" data-de="&quot;Content-Erstellung, Innovation und kontinuierliche Verbesserung führen zu optimalen Ergebnissen.&quot;">
+                    "Content creation, innovation, and continuous improvement drive optimal results."
+                </blockquote>
+            </div>
         </div>
+    </section>
+
+    <!-- 4. Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="section-container">
+            <h2 class="section-title" data-animate="word-split" data-en="Projects" data-de="Projekte">
+                <span class="word">Projekte</span>
+            </h2>
+            <div class="project-split-grid">
+                <!-- Large Hero Tile -->
+                <article class="project-tile large-tile" data-animate="fade-up">
+                    <div class="tile-image">
+                        <img src="19sx.png" alt="19sx screenshot" class="tile-img">
+                    </div>
+                    <div class="tile-content">
+                        <span class="kicker">~/projects/19sx</span>
+                        <h3>19sx / alexanderherman.works</h3>
+                        <p data-en="My personal site portfolio. Built with HTML, CSS, and modern JS." data-de="Meine persönliche Portfolio-Seite. Erstellt mit HTML, CSS und modernem JS.">My personal site portfolio. Built with HTML, CSS, and modern JS.</p>
+                        <a href="#" class="btn-primary">View Project</a>
+                    </div>
+                </article>
+                <!-- Smaller Tiles -->
+                <article class="project-tile small-tile" data-animate="fade-up">
+                    <div class="tile-image">
+                        <img src="locktf.png" alt="locktf screenshot" class="tile-img">
+                    </div>
+                    <div class="tile-content">
+                        <span class="kicker">~/projects/locktf</span>
+                        <h3>locktf</h3>
+                        <p data-en="My CS50 final project." data-de="Mein CS50 Abschlussprojekt.">My CS50 final project.</p>
+                        <a href="https://github.com/19sx/locktf" target="_blank" class="project-link">View on GitHub</a>
+                    </div>
+                </article>
+                <article class="project-tile small-tile" data-animate="fade-up">
+                    <div class="tile-image">
+                        <div class="color-block" style="background: linear-gradient(135deg, #ff0844, #ffb199);"></div>
+                    </div>
+                    <div class="tile-content">
+                        <span class="kicker">~/projects/upcoming</span>
+                        <h3>Upcoming</h3>
+                        <p data-en="More projects arriving soon." data-de="Weitere Projekte folgen in Kürze.">More projects arriving soon.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Achievements Section -->
+    <section id="achievements" class="section achievements-section">
+        <div class="section-container">
+            <h2 class="section-title" data-animate="word-split" data-en="Achievements" data-de="Erfolge">
+                <span class="word">Erfolge</span>
+            </h2>
+            <div class="feature-stripes">
+                <div class="feature-stripe" data-animate="fade-up">
+                    <div class="feature-content">
+                        <h3>Platz 5</h3>
+                        <p data-en="Hacking Challenge THA. Cybersecurity competition solving real-world exploits." data-de="Hacking Challenge THA. Cybersicherheits-Wettbewerb mit Alltagsnahen Exploits.">Hacking Challenge THA. Cybersecurity competition solving real-world exploits.</p>
+                        <a href="https://www.linkedin.com/posts/a7lexjs_whitehatsforfuture-ctf-cybersecurity-ugcPost-7427422672076136449-mmmK?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFBl12sB0bxVN2wnOlLbhlFypS6uI7Ss-WA" target="_blank" class="btn-primary" data-en="View Linkedin Post" data-de="Link zum Linkedin Post">View Credential</a>
+                    </div>
+                    <div class="feature-visual">
+                        <img src="tha-hacking.jpg" alt="THA Hacking Challenge" class="feature-img">
+                    </div>
+                </div>
+                <div class="feature-stripe" data-animate="fade-up">
+                    <div class="feature-content">
+                        <h3>CS50x</h3>
+                        <p data-en="Completion of Harvard's Introduction to Computer Science." data-de="Absolvierung des CS50x Kurses">Completion of Harvard's Introduction to Computer Science.</p>
+                        <a href="https://www.linkedin.com/posts/a7lexjs_i-really-enjoyed-the-cs50-course-and-it-share-7370440397778477056-x-JD?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFBl12sB0bxVN2wnOlLbhlFypS6uI7Ss-WA" target="_blank" class="btn-primary" data-en="View Linkedin Post" data-de="Link zum Linkedin Post">View Certificate</a>
+                    </div>
+                    <div class="feature-visual">
+                        <img src="cs50x-banner.png" alt="CS50x Certificate" class="feature-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Contact / Footer -->
+    <footer id="contact" class="section contact-section" style="padding-bottom: 40px;">
+        <div class="contact-content" data-animate="fade-up">
+            <h2 class="section-title" data-animate="word-split"
+                data-en="Get in Touch" data-de="Kontakt">
+                <span class="word">Get</span> <span class="word">in</span> <span class="word">Touch</span>
+            </h2>
+            <a href="mailto:al7xdev@proton.me" class="btn-primary" data-en="Contact Me" data-de="Kontaktiere mich">Contact Me</a>
+            <div class="social-links" style="margin-top: 40px; margin-bottom: 60px;">
+                <a href="https://github.com/19sx" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/alexander-herman-48b889317" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:al7xdev@proton.me" class="social-icon"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <p class="mono" style="text-align: center; color: var(--muted); font-size: 13px;">
+            compiled with ❤ — <a href="https://github.com/19sx/19sx.github.io" target="_blank" style="color: var(--blue); text-decoration: none;">view source</a>
+        </p>
+    </footer>
+
+    <!-- Cmd+K Palette -->
+    <div class="cmd-k" hidden>
+        <input type="text" id="cmd-k-input" placeholder="Type a command or search..." data-en="Type a command or search..." data-de="Befehl eingeben oder suchen...">
+        <ul class="cmd-k-results" id="cmd-k-results">
+            <li data-target="#hero" data-en="Navigate to Hero" data-de="Zu Hero navigieren">Navigate to Hero</li>
+            <li data-target="#about" data-en="Navigate to About" data-de="Zu Über navigieren">Navigate to About</li>
+            <li data-target="#projects" data-en="Navigate to Projekte" data-de="Zu Projekte navigieren">Navigate to Projekte</li>
+            <li data-target="#achievements" data-en="Navigate to Erfolge" data-de="Zu Erfolge navigieren">Navigate to Erfolge</li>
+            <li data-target="#contact" data-en="Navigate to Contact" data-de="Zu Kontakt navigieren">Navigate to Contact</li>
+        </ul>
     </div>
-
 </body>
 </html>

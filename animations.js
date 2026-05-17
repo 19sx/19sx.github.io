@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const palette = document.querySelector('.cmd-k');
   const input = palette?.querySelector('input');
   const resultsList = palette?.querySelector('.cmd-k-results');
-  const anchors = ['#hero', '#about', '#projects', '#achievements', '#contact'];
+  const anchors = ['#hero', '#about', '#projects', '#achievements', '#waitlist', '#contact'];
   let lastFocused = null;
   const cmdItems = resultsList?.querySelectorAll('li');
 
@@ -205,6 +205,126 @@ document.addEventListener('DOMContentLoaded', () => {
     applyLanguage(currentLang);
     localStorage.setItem('lang', currentLang);
   });
+
+  // --- Waitlist forms ---
+  const API_BASE = window.location.hostname === 'localhost'
+    ? 'http://localhost:3000'
+    : window.location.origin;
+
+  const tabs = document.querySelectorAll('.waitlist-tab');
+  const forms = document.querySelectorAll('.waitlist-form');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      forms.forEach(f => f.classList.remove('active'));
+      tab.classList.add('active');
+      const target = document.getElementById(`form-${tab.dataset.tab === 'student' ? 'schueler' : 'kmu'}`);
+      if (target) target.classList.add('active');
+    });
+  });
+
+  const ageSelect = document.getElementById('student-age');
+  const parentEmailGroup = document.querySelector('.parent-email-group');
+  if (ageSelect && parentEmailGroup) {
+    ageSelect.addEventListener('change', () => {
+      parentEmailGroup.hidden = ageSelect.value !== 'under_16';
+    });
+  }
+
+  function showMessage(form, type, text) {
+    const msg = form.querySelector('.form-message');
+    if (!msg) return;
+    msg.className = `form-message ${type}`;
+    msg.textContent = text;
+  }
+
+  function clearMessage(form) {
+    const msg = form.querySelector('.form-message');
+    if (msg) { msg.className = 'form-message'; msg.textContent = ''; }
+  }
+
+  function setSubmitting(form, isSubmitting) {
+    const btn = form.querySelector('.form-submit');
+    if (btn) {
+      btn.disabled = isSubmitting;
+      btn.textContent = isSubmitting
+        ? (document.documentElement.lang === 'de' ? 'Wird gesendet...' : 'Sending...')
+        : (document.documentElement.lang === 'de' ? 'Auf Warteliste' : 'Join Waitlist');
+    }
+  }
+
+  const formSchueler = document.getElementById('form-schueler');
+  const formKmu = document.getElementById('form-kmu');
+
+  if (formSchueler) {
+    formSchueler.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearMessage(formSchueler);
+      setSubmitting(formSchueler, true);
+
+      const fd = new FormData(formSchueler);
+      const data = Object.fromEntries(fd.entries());
+      data.consent = data.consent === 'on';
+
+      if (data.age_group === 'under_16' && !data.parent_email) {
+        showMessage(formSchueler, 'error', 'Bitte gib die E-Mail der Eltern an.');
+        setSubmitting(formSchueler, false);
+        return;
+      }
+
+      try {
+        showMessage(formSchueler, 'loading', 'Sende Bestätigungs-E-Mail...');
+        const res = await fetch(`${API_BASE}/api/signup/student`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (!res.ok || !json.success) {
+          throw new Error(json.message || 'Fehler beim Senden.');
+        }
+        showMessage(formSchueler, 'success', 'Bitte bestätige deine E-Mail-Adresse. Wir haben dir eine E-Mail geschickt.');
+        formSchueler.reset();
+        if (parentEmailGroup) parentEmailGroup.hidden = true;
+      } catch (err) {
+        showMessage(formSchueler, 'error', err.message || 'Ein Fehler ist aufgetreten.');
+      } finally {
+        setSubmitting(formSchueler, false);
+      }
+    });
+  }
+
+  if (formKmu) {
+    formKmu.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearMessage(formKmu);
+      setSubmitting(formKmu, true);
+
+      const fd = new FormData(formKmu);
+      const data = Object.fromEntries(fd.entries());
+      data.consent = data.consent === 'on';
+
+      try {
+        showMessage(formKmu, 'loading', 'Sende Bestätigungs-E-Mail...');
+        const res = await fetch(`${API_BASE}/api/signup/company`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (!res.ok || !json.success) {
+          throw new Error(json.message || 'Fehler beim Senden.');
+        }
+        showMessage(formKmu, 'success', 'Bitte bestätigen Sie Ihre E-Mail-Adresse. Wir haben Ihnen eine E-Mail geschickt.');
+        formKmu.reset();
+      } catch (err) {
+        showMessage(formKmu, 'error', err.message || 'Ein Fehler ist aufgetreten.');
+      } finally {
+        setSubmitting(formKmu, false);
+      }
+    });
+  }
 
   function applyLanguage(lang) {
     document.documentElement.lang = lang === 'de' ? 'de' : 'en';

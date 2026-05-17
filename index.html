@@ -35,6 +35,7 @@
                 <a href="#about" data-en="About" data-de="Über">About</a>
                 <a href="#projects" data-en="Projects" data-de="Projekte">Projekte</a>
                 <a href="#achievements" data-en="Achievements" data-de="Erfolge">Erfolge</a>
+                <a href="#waitlist" data-en="Waitlist" data-de="Warteliste">Warteliste</a>
                 <a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a>
             </div>
             <button class="hamburger" aria-label="Menu">
@@ -93,7 +94,7 @@
                         <span class="kicker">~/projects/19sx</span>
                         <h3>19sx / alexanderherman.works</h3>
                         <p data-en="My personal site portfolio. Built with HTML, CSS, and modern JS." data-de="Meine persönliche Portfolio-Seite. Erstellt mit HTML, CSS und modernem JS.">My personal site portfolio. Built with HTML, CSS, and modern JS.</p>
-                        <a href="#" class="btn-primary">View Project</a>
+                        <a href="https://alexanderherman.works" target="_blank" class="btn-primary">View Project</a>
                     </div>
                 </article>
                 <!-- Smaller Tiles -->
@@ -110,12 +111,13 @@
                 </article>
                 <article class="project-tile small-tile" data-animate="fade-up">
                     <div class="tile-image">
-                        <div class="color-block" style="background: linear-gradient(135deg, #ff0844, #ffb199);"></div>
+                        <img src="tg-doctor.png" alt="Telegram Doctor screenshot" class="tile-img">
                     </div>
                     <div class="tile-content">
-                        <span class="kicker">~/projects/upcoming</span>
-                        <h3>Upcoming</h3>
-                        <p data-en="More projects arriving soon." data-de="Weitere Projekte folgen in Kürze.">More projects arriving soon.</p>
+                        <span class="kicker">~/projects/telegram_doctor</span>
+                        <h3>Telegram Doctor</h3>
+                        <p data-en="CLI tool that validates Telegram bot tokens and runs end-to-end API health checks." data-de="CLI-Tool zur Validierung von Telegram-Bot-Tokens und für End-to-End-API-Diagnosen.">CLI tool that validates Telegram bot tokens and runs end-to-end API health checks.</p>
+                        <a href="https://github.com/19sx/telegram_doctor" target="_blank" class="project-link">View on GitHub</a>
                     </div>
                 </article>
             </div>
@@ -153,7 +155,109 @@
         </div>
     </section>
 
-    <!-- 6. Contact / Footer -->
+    <!-- 6. Waitlist Section -->
+    <section id="waitlist" class="section waitlist-section">
+        <div class="section-container">
+            <h2 class="section-title" data-animate="word-split" data-en="Join the Waitlist" data-de="Warteliste">
+                <span class="word">Warteliste</span>
+            </h2>
+            <p class="waitlist-subtitle" data-en="Choose your path — Student or Company" data-de="Wähle deinen Weg — Schüler oder Unternehmen">Wähle deinen Weg — Schüler oder Unternehmen</p>
+
+            <div class="waitlist-tabs">
+                <button class="waitlist-tab active" data-tab="student" data-en="Student" data-de="Schüler">Schüler</button>
+                <button class="waitlist-tab" data-tab="kmu" data-en="Company" data-de="KMU">KMU</button>
+            </div>
+
+            <div class="waitlist-forms">
+                <!-- Student Form -->
+                <form id="form-schueler" class="waitlist-form active" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-name" data-en="Name *" data-de="Name *">Name *</label>
+                            <input type="text" id="student-name" name="name" required placeholder="Max Mustermann">
+                        </div>
+                        <div class="form-group">
+                            <label for="student-email" data-en="Email *" data-de="E-Mail *">E-Mail *</label>
+                            <input type="email" id="student-email" name="email" required placeholder="max@example.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="student-city" data-en="City *" data-de="Stadt *">Stadt *</label>
+                            <input type="text" id="student-city" name="city" required placeholder="Berlin">
+                        </div>
+                        <div class="form-group">
+                            <label for="student-skill" data-en="Skill" data-de="Skill">Skill</label>
+                            <input type="text" id="student-skill" name="skill" placeholder="Python, C, etc.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-age" data-en="Age Group" data-de="Altersgruppe">Altersgruppe</label>
+                        <select id="student-age" name="age_group">
+                            <option value="" data-en="Please select..." data-de="Bitte wählen...">Bitte wählen...</option>
+                            <option value="under_16" data-en="Under 16" data-de="Unter 16">Unter 16</option>
+                            <option value="16_18" data-en="16 – 18" data-de="16 – 18">16 – 18</option>
+                            <option value="over_18" data-en="Over 18" data-de="Über 18">Über 18</option>
+                        </select>
+                    </div>
+                    <div class="form-group parent-email-group" hidden>
+                        <label for="student-parent-email" data-en="Parent Email *" data-de="E-Mail der Eltern *">E-Mail der Eltern *</label>
+                        <input type="email" id="student-parent-email" name="parent_email" placeholder="eltern@example.com">
+                        <small data-en="We need parental consent — confirmation email goes to parents." data-de="Wir benötigen die Zustimmung der Eltern — die Bestätigungsmail geht an die Eltern.">Wir benötigen die Zustimmung der Eltern — die Bestätigungsmail geht an die Eltern.</small>
+                    </div>
+                    <div class="form-group consent-group">
+                        <label class="consent-label">
+                            <input type="checkbox" name="consent" required>
+                            <span data-en="I agree to the privacy policy and the storage of my data for the purpose of the waiting list (GDPR-compliant)." data-de="Ich stimme der Datenschutzerklärung und der Speicherung meiner Daten zum Zweck der Warteliste zu (DSGVO-konform).">Ich stimme der Datenschutzerklärung und der Speicherung meiner Daten zum Zweck der Warteliste zu (DSGVO-konform).</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary form-submit" data-en="Join Waitlist" data-de="Auf Warteliste">Auf Warteliste</button>
+                    <div class="form-message"></div>
+                </form>
+
+                <!-- KMU Form -->
+                <form id="form-kmu" class="waitlist-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="kmu-company" data-en="Company *" data-de="Unternehmen *">Unternehmen *</label>
+                            <input type="text" id="kmu-company" name="company" required placeholder="ACME GmbH">
+                        </div>
+                        <div class="form-group">
+                            <label for="kmu-email" data-en="Email *" data-de="E-Mail *">E-Mail *</label>
+                            <input type="email" id="kmu-email" name="email" required placeholder="info@acme.de">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="kmu-city" data-en="City *" data-de="Stadt *">Stadt *</label>
+                            <input type="text" id="kmu-city" name="city" required placeholder="Berlin">
+                        </div>
+                        <div class="form-group">
+                            <label for="kmu-type" data-en="Company Type" data-de="Unternehmenstyp">Unternehmenstyp</label>
+                            <select id="kmu-type" name="company_type">
+                                <option value="" data-en="Please select..." data-de="Bitte wählen...">Bitte wählen...</option>
+                                <option value="startup">Startup</option>
+                                <option value="mittelstand" data-en="Medium-Sized" data-de="Mittelstand">Mittelstand</option>
+                                <option value="konzern" data-en="Corporation" data-de="Konzern">Konzern</option>
+                                <option value="agentur" data-en="Agency" data-de="Agentur">Agentur</option>
+                                <option value="other" data-en="Other" data-de="Sonstiges">Sonstiges</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group consent-group">
+                        <label class="consent-label">
+                            <input type="checkbox" name="consent" required>
+                            <span data-en="I agree to the privacy policy and the storage of my data for the purpose of the waiting list (GDPR-compliant)." data-de="Ich stimme der Datenschutzerklärung und der Speicherung meiner Daten zum Zweck der Warteliste zu (DSGVO-konform).">Ich stimme der Datenschutzerklärung und der Speicherung meiner Daten zum Zweck der Warteliste zu (DSGVO-konform).</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn-primary form-submit" data-en="Join Waitlist" data-de="Auf Warteliste">Auf Warteliste</button>
+                    <div class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Contact / Footer -->
     <footer id="contact" class="section contact-section" style="padding-bottom: 40px;">
         <div class="contact-content" data-animate="fade-up">
             <h2 class="section-title" data-animate="word-split"
@@ -180,6 +284,7 @@
             <li data-target="#about" data-en="Navigate to About" data-de="Zu Über navigieren">Navigate to About</li>
             <li data-target="#projects" data-en="Navigate to Projekte" data-de="Zu Projekte navigieren">Navigate to Projekte</li>
             <li data-target="#achievements" data-en="Navigate to Erfolge" data-de="Zu Erfolge navigieren">Navigate to Erfolge</li>
+            <li data-target="#waitlist" data-en="Navigate to Waitlist" data-de="Zur Warteliste">Navigate to Waitlist</li>
             <li data-target="#contact" data-en="Navigate to Contact" data-de="Zu Kontakt navigieren">Navigate to Contact</li>
         </ul>
     </div>

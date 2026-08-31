@@ -1,188 +1,195 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Herman</title>
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <title>Alexander Herman — Dev & Security</title>
+    <meta name="description" content="Portfolio von Alexander Herman (19sx) — Software, Tools & IT-Sicherheit.">
 
-    <!-- Google Fonts -->
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Animations Script -->
     <script src="animations.js" defer></script>
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="#hero" class="brand mono">~/19sx</a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#projects" class="nav-link" data-i18n="navProjects">Projekte</a>
+                <a href="#achievements" class="nav-link" data-i18n="navAchievements">Erfolge</a>
+                <a href="#contact" class="nav-link" data-i18n="navContact">Kontakt</a>
+            </div>
 
-    <!-- 1. Sticky Nav -->
-    <nav class="site-nav">
-        <div class="nav-container">
-            <a href="#hero" class="site-name">Alexander Herman</a>
-            <div class="nav-links">
-                <a href="#about" data-en="About" data-de="Über">About</a>
-                <a href="#projects" data-en="Projects" data-de="Projekte">Projekte</a>
-                <a href="#achievements" data-en="Achievements" data-de="Erfolge">Erfolge</a>
-                <a href="#contact" data-en="Contact" data-de="Kontakt">Contact</a>
+            <div class="nav-actions">
+                <button id="langToggle" class="btn-toggle" aria-label="Sprache wechseln">EN</button>
+                <button id="themeToggle" class="btn-toggle" aria-label="Design wechseln">
+                    <span class="theme-icon-dark">&#9790;</span>
+                    <span class="theme-icon-light">&#9788;</span>
+                </button>
+                <button id="hamburger" class="hamburger" aria-label="Menü" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <button class="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="nav-toggles">
-                <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">☀</button>
-            </div>
-            <div class="nav-status">
-                <span class="mono" style="font-size: 11px; margin-right: 15px;"><span class="status-dot"></span> <span data-en="available" data-de="aktiv">available</span></span>
-                <kbd>⌘K</kbd>
-            </div>
-        </div>
-    </nav>
-
-    <!-- 2. Hero Section -->
-    <header id="hero" class="section hero-section">
-        <div class="hero-content">
-            <h1 class="hero-title" data-animate="word-split">
-                <span class="word">Alexander</span> <span class="word">Herman</span>
-            </h1>
-            <p class="hero-subtitle typewriter mono" data-text="> initializing portfolio.exe..."></p>
-        </div>
+        </nav>
     </header>
 
-    <!-- 3. About / Intro Strip -->
-    <section id="about" class="section about-section">
-        <div class="about-container">
-            <div class="about-sticky-content">
-                <h2 class="section-title" data-animate="word-split" data-en="Innovation starts here." data-de="Innovation beginnt mit uns.">
-                    <span class="word">Innovation</span> <span class="word">starts</span> <span class="word">here.</span>
-                </h2>
-            </div>
-            <div class="about-scroll-content">
-                <blockquote data-animate="fade-up" data-en="&quot;Content creation, innovation, and continuous improvement drive optimal results.&quot;" data-de="&quot;Content-Erstellung, Innovation und kontinuierliche Verbesserung führen zu optimalen Ergebnissen.&quot;">
-                    "Content creation, innovation, and continuous improvement drive optimal results."
-                </blockquote>
-            </div>
-        </div>
-    </section>
-
-    <!-- 4. Projects Section -->
-    <section id="projects" class="section projects-section">
-        <div class="section-container">
-            <h2 class="section-title" data-animate="word-split" data-en="Projects" data-de="Projekte">
-                <span class="word">Projekte</span>
-            </h2>
-            <div class="project-split-grid">
-                <!-- Large Hero Tile -->
-                <article class="project-tile large-tile" data-animate="fade-up">
-                    <div class="tile-image">
-                        <img src="19sx.png" alt="19sx screenshot" class="tile-img">
-                    </div>
-                    <div class="tile-content">
-                        <span class="kicker">~/projects/19sx</span>
-                        <h3>19sx / alexanderherman.works</h3>
-                        <p data-en="My personal site portfolio. Built with HTML, CSS, and modern JS." data-de="Meine persönliche Portfolio-Seite. Erstellt mit HTML, CSS und modernem JS.">My personal site portfolio. Built with HTML, CSS, and modern JS.</p>
-                        <a href="https://alexanderherman.works" target="_blank" rel="noopener noreferrer" class="btn-primary">View Project</a>
-                    </div>
-                </article>
-                <!-- Smaller Tiles -->
-                <article class="project-tile small-tile" data-animate="fade-up">
-                    <div class="tile-image">
-                        <img src="locktf.png" alt="locktf screenshot" class="tile-img">
-                    </div>
-                    <div class="tile-content">
-                        <span class="kicker">~/projects/locktf</span>
-                        <h3>locktf</h3>
-                        <p data-en="My CS50 final project." data-de="Mein CS50 Abschlussprojekt.">My CS50 final project.</p>
-                        <a href="https://github.com/19sx/locktf" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-                    </div>
-                </article>
-                <article class="project-tile small-tile" data-animate="fade-up">
-                    <div class="tile-image">
-                        <img src="tg-doctor.png" alt="Telegram Doctor screenshot" class="tile-img">
-                    </div>
-                    <div class="tile-content">
-                        <span class="kicker">~/projects/telegram_doctor</span>
-                        <h3>Telegram Doctor</h3>
-                        <p data-en="CLI tool that validates Telegram bot tokens and runs end-to-end API health checks." data-de="CLI-Tool zur Validierung von Telegram-Bot-Tokens und für End-to-End-API-Diagnosen.">CLI tool that validates Telegram bot tokens and runs end-to-end API health checks.</p>
-                        <a href="https://github.com/19sx/telegram_doctor" target="_blank" rel="noopener noreferrer" class="project-link">View on GitHub</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- 5. Achievements Section -->
-    <section id="achievements" class="section achievements-section">
-        <div class="section-container">
-            <h2 class="section-title" data-animate="word-split" data-en="Achievements" data-de="Erfolge">
-                <span class="word">Erfolge</span>
-            </h2>
-            <div class="feature-stripes">
-                <div class="feature-stripe" data-animate="fade-up">
-                    <div class="feature-content">
-                        <h3>Platz 5</h3>
-                        <p data-en="Hacking Challenge THA. Cybersecurity competition solving real-world exploits." data-de="Hacking Challenge THA. Cybersicherheits-Wettbewerb mit Alltagsnahen Exploits.">Hacking Challenge THA. Cybersecurity competition solving real-world exploits.</p>
-                        <a href="https://www.linkedin.com/posts/a7lexjs_whitehatsforfuture-ctf-cybersecurity-ugcPost-7427422672076136449-mmmK?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFBl12sB0bxVN2wnOlLbhlFypS6uI7Ss-WA" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="View Linkedin Post" data-de="Link zum Linkedin Post">View Credential</a>
-                    </div>
-                    <div class="feature-visual">
-                        <img src="tha-hacking.jpg" alt="THA Hacking Challenge" class="feature-img">
-                    </div>
-                </div>
-                <div class="feature-stripe" data-animate="fade-up">
-                    <div class="feature-content">
-                        <h3>CS50x</h3>
-                        <p data-en="Completion of Harvard's Introduction to Computer Science." data-de="Absolvierung des CS50x Kurses">Completion of Harvard's Introduction to Computer Science.</p>
-                        <a href="https://www.linkedin.com/posts/a7lexjs_i-really-enjoyed-the-cs50-course-and-it-share-7370440397778477056-x-JD?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAFBl12sB0bxVN2wnOlLbhlFypS6uI7Ss-WA" target="_blank" rel="noopener noreferrer" class="btn-primary" data-en="View Linkedin Post" data-de="Link zum Linkedin Post">View Certificate</a>
-                    </div>
-                    <div class="feature-visual">
-                        <img src="cs50x-banner.png" alt="CS50x Certificate" class="feature-img">
-                    </div>
+    <main>
+        <!-- Intro -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Alexander Herman</h1>
+                <p class="hero-role mono" data-i18n="heroRole">Software & Cyber Security</p>
+                <p class="hero-bio" data-i18n="heroBio">
+                    Hi, ich bin Alexander (19sx). Ich baue schlanke Software, spiele gerne CTFs und beschäftige mich mit IT-Sicherheit. Am liebsten arbeite ich an CLI-Tools, System-Utilities und schnellen Web-Sachen.
+                </p>
+                <div class="hero-links">
+                    <a href="https://github.com/19sx" target="_blank" rel="noopener noreferrer" class="link-item mono">github.com/19sx &rarr;</a>
+                    <a href="mailto:al7xdev@proton.me" class="link-item mono">al7xdev@proton.me &rarr;</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 7. Contact / Footer -->
-    <footer id="contact" class="section contact-section" style="padding-bottom: 40px;">
-        <div class="contact-content" data-animate="fade-up">
-            <h2 class="section-title" data-animate="word-split"
-                data-en="Get in Touch" data-de="Kontakt">
-                <span class="word">Get</span> <span class="word">in</span> <span class="word">Touch</span>
-            </h2>
-            <a href="mailto:al7xdev@proton.me" class="btn-primary" data-en="Contact Me" data-de="Kontaktiere mich">Contact Me</a>
-            <div class="social-links" style="margin-top: 40px; margin-bottom: 60px;">
-                <a href="https://github.com/19sx" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub profile"><i class="fab fa-github" aria-hidden="true"></i></a>
-                <a href="https://linkedin.com/in/alexander-herman-48b889317" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn profile"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                <a href="mailto:al7xdev@proton.me" class="social-icon" aria-label="Email Alexander Herman"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+        <!-- Projects -->
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="projectsTitle">Projekte</h2>
+                </div>
+
+                <div class="projects-list">
+                    <!-- 19sx -->
+                    <article class="project-item">
+                        <div class="project-preview">
+                            <img src="19sx.png" alt="alexanderherman.works" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-head">
+                                <h3>alexanderherman.works</h3>
+                                <span class="project-tag mono">Frontend</span>
+                            </div>
+                            <p data-i18n="project1Desc">Mein persönliches Portfolio. Schlank gehalten mit purem HTML, CSS und modernem JavaScript.</p>
+                            <div class="project-links">
+                                <a href="https://alexanderherman.works" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-primary" data-i18n="viewLive">Website öffnen</a>
+                                <a href="https://github.com/19sx/19sx.github.io" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- locktf -->
+                    <article class="project-item">
+                        <div class="project-preview">
+                            <img src="locktf.png" alt="locktf" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-head">
+                                <h3>locktf</h3>
+                                <span class="project-tag mono">Security / Python</span>
+                            </div>
+                            <p data-i18n="project2Desc">CS50-Abschlussprojekt: Fokus auf sicheres File-Management, Verschlüsselung und Auth.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/19sx/locktf" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Telegram Doctor -->
+                    <article class="project-item">
+                        <div class="project-preview">
+                            <img src="tg-doctor.png" alt="Telegram Doctor" loading="lazy">
+                        </div>
+                        <div class="project-info">
+                            <div class="project-head">
+                                <h3>Telegram Doctor</h3>
+                                <span class="project-tag mono">CLI / Tooling</span>
+                            </div>
+                            <p data-i18n="project3Desc">CLI-Tool zum schnellen Prüfen von Telegram-Bot-Tokens und automatisierten API-Healthchecks.</p>
+                            <div class="project-links">
+                                <a href="https://github.com/19sx/telegram_doctor" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-secondary">GitHub</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
             </div>
+        </section>
+
+        <!-- Achievements -->
+        <section id="achievements" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="achievementsTitle">Erfolge & Zertifikate</h2>
+                </div>
+
+                <div class="achievements-list">
+                    <article class="achievement-item">
+                        <div class="achievement-info">
+                            <div class="achievement-head">
+                                <h3>Hacking Challenge THA</h3>
+                                <span class="badge mono">Platz 5</span>
+                            </div>
+                            <p data-i18n="achievement1Desc">5. Platz beim Cybersecurity-Wettbewerb der TH Augsburg – praktische Web- & System-Exploits gelöst.</p>
+                            <a href="https://www.linkedin.com/posts/a7lexjs_whitehatsforfuture-ctf-cybersecurity-ugcPost-7427422672076136449-mmmK" target="_blank" rel="noopener noreferrer" class="text-link mono" data-i18n="achievement1Link">
+                                Post auf LinkedIn &rarr;
+                            </a>
+                        </div>
+                        <div class="achievement-thumb">
+                            <img src="tha-hacking.jpg" alt="THA Hacking Challenge" loading="lazy">
+                        </div>
+                    </article>
+
+                    <article class="achievement-item">
+                        <div class="achievement-info">
+                            <div class="achievement-head">
+                                <h3>Harvard CS50x</h3>
+                                <span class="badge mono">Zertifikat</span>
+                            </div>
+                            <p data-i18n="achievement2Desc">Harvards CS50x Informatik-Grundlagenkurs erfolgreich absolviert (C, Python, SQL, Algorithmen).</p>
+                            <a href="https://www.linkedin.com/posts/a7lexjs_i-really-enjoyed-the-cs50-course-and-it-share-7370440397778477056-x-JD" target="_blank" rel="noopener noreferrer" class="text-link mono" data-i18n="achievement2Link">
+                                Zertifikat ansehen &rarr;
+                            </a>
+                        </div>
+                        <div class="achievement-thumb">
+                            <img src="cs50x-banner.png" alt="CS50x Zertifikat" loading="lazy">
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title" data-i18n="contactTitle">Kontakt</h2>
+                </div>
+                <p class="contact-text" data-i18n="contactDesc">
+                    Offen für Projekte, CTF-Teams oder einfach zum Austauschen.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:al7xdev@proton.me" class="btn btn-primary" data-i18n="contactBtn">Mail schreiben</a>
+                    <a href="https://github.com/19sx" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub</a>
+                    <a href="https://linkedin.com/in/alexander-herman-48b889317" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p class="mono">&copy; <span id="currentYear"></span> Alexander Herman</p>
+            <a href="https://github.com/19sx/19sx.github.io" target="_blank" rel="noopener noreferrer" class="mono text-link" data-i18n="sourceLink">Quellcode auf GitHub</a>
         </div>
-        <p class="mono" style="text-align: center; color: var(--muted); font-size: 13px;">
-            compiled with ❤ — <a href="https://github.com/19sx/19sx.github.io" target="_blank" rel="noopener noreferrer" style="color: var(--blue); text-decoration: none;">view source</a>
-        </p>
     </footer>
-
-    <!-- Cmd+K Palette -->
-    <div class="cmd-k" hidden>
-        <input type="text" id="cmd-k-input" placeholder="Type a command or search..." data-en="Type a command or search..." data-de="Befehl eingeben oder suchen...">
-        <ul class="cmd-k-results" id="cmd-k-results">
-            <li data-target="#hero" data-en="Navigate to Hero" data-de="Zu Hero navigieren">Navigate to Hero</li>
-            <li data-target="#about" data-en="Navigate to About" data-de="Zu Über navigieren">Navigate to About</li>
-            <li data-target="#projects" data-en="Navigate to Projekte" data-de="Zu Projekte navigieren">Navigate to Projekte</li>
-            <li data-target="#achievements" data-en="Navigate to Erfolge" data-de="Zu Erfolge navigieren">Navigate to Erfolge</li>
-            <li data-target="#contact" data-en="Navigate to Contact" data-de="Zu Kontakt navigieren">Navigate to Contact</li>
-        </ul>
-    </div>
 </body>
 </html>
